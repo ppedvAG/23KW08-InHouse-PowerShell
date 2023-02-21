@@ -16,9 +16,10 @@ Dieser Kurs besteht aus den beiden Kursen:
 - Operationen
 - Formatierungen
 - PipeLine1
-- PipeLine2
 - Export 
 - Import
 - Filtern
 - Aufzählen
 - Schleifen 
+- Verzweigungen
+- PipeLine2
