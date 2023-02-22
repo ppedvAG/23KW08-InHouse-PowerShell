@@ -23,3 +23,4 @@ Dieser Kurs besteht aus den beiden Kursen:
 - Schleifen 
 - Verzweigungen
 - PipeLine2
+- Variablen 2
