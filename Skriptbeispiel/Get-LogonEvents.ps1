@@ -31,13 +31,15 @@ https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/ab
 [cmdletBinding()]
 param(
 [Parameter(Mandatory=$true)]
+[ValidateSet(4624,4625,4634)]
 [int]$EventId,
 
-[int]$Newest = 10,
+[ValidateRange(5,10)]
+[int]$Newest = 5,
 
 [string]$ComputerName = "localhost"
 )
-
+$Newest = 2
 Write-Verbose -Message "ICh werde bei Bedarf mit ausgeben"
 Write-Verbose -Message "Es wurden folgende WErte übgergeben: $EventId | $Newest | $ComputerName"
 Get-EventLog -LogName Security -ComputerName $ComputerName | Where-Object EventId -eq $EventId | Select-Object -First $Newest
