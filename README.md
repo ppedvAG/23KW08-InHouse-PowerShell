@@ -24,3 +24,4 @@ Dieser Kurs besteht aus den beiden Kursen:
 - Verzweigungen
 - PipeLine2
 - Variablen 2
+- Git
