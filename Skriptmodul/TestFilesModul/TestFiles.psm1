@@ -83,3 +83,21 @@ for($i = 1; $i -le $FileCount; $i++)
 
 
 }
+
+
+<#
+.SYNOPSIS
+ Function with Credentials
+.DESCRITPION
+ function welche Credentials Parameter annimmt
+#>
+function Get-Anmeldeinformationen
+{
+[cmdletBinding()]
+param(
+[Parameter(Mandatory=$true)]
+[pscredential]$Anmeldung
+)
+
+Write-Host -Object "hahahah"
+}
