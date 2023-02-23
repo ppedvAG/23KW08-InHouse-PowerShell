@@ -1,55 +1,79 @@
-﻿class Auto
+﻿class Fahrzeug
 {
-    [string]$Marke
+    [int]$Sitzplätze
+    [string]$Motortyp
+    [Farbe]$Farbe
+
+    [string]$Hersteller
     [string]$Modell
-    [string]$Leistung
-    [Antriebsart]$Antrieb
-    hidden [string]$versteckt #versteckte Eigenschaft die bei Get-Member nur mit dem Force Parameter angezeigt wird
 
-    [void]SetMarke([string]$Marke)
+    #überschreibe die Standard Methode To STring
+    [string]ToString()
     {
-        $this.Marke = $Marke
-    }
-
-    [string]ToString() #Überschreibung der im Standard bereits existieren Methode .ToString()
-    {
-        [string]$Ausgabe = $this.Marke + " | " + $this.Modell
+        [string]$Ausgabe = $this.Hersteller + " /\ " + $this.Modell
         return $Ausgabe
     }
+}
 
-    [string]ToJSon()
-    {
-        return ($this | ConvertTo-Json)
-    }
+class Auto : Fahrzeug
+{
+    [int]$Räder
+    [int]$AnzahlAirbag
+    [int]$VMAX
 
     Auto()
     {
 
     }
 
-    Auto([string]$Marke)
+    Auto([string]$Hersteller)
     {
-        $this.Marke = $Marke
+        $this.Hersteller = $Hersteller
     }
-
-    Auto([string]$Marke,[string]$Modell)
+    
+    Auto([string]$Hersteller, [string]$Modell)
     {
-        $this.Marke = $Marke
+        $this.Hersteller = $Hersteller
         $this.Modell = $Modell
     }
+
+    [void]SetHersteller([string]$Hersteller)
+    {
+        $this.Hersteller = $Hersteller
+    }
+
+    [void]fahre([int]$Strecke)
+    {
+        
+        for($i = 1; $i -le $Strecke; $i ++)
+        {
+        	Start-Sleep -Milliseconds (300 - $this.VMAX)
+
+            Clear-Host
+            $Straße += " - "
+            
+            Write-Host -Object ($Straße + "🚌" ) -NoNewline
+            Write-Host -Object ("-" + "🚗"  )
+        }
+        
+    }
 }
 
-enum Antriebsart
+enum Farbe
 {
-    Undefined
-    Elektrisch
-    Hybrid
-    Benzin
-    Diesel
+    Silber
+    Blau
+    Grün
+    Gelb
+    Schwarz
+    Lila = 99
 }
-
-$Mercedes = [Auto]::new("Mercedes")
-$Mercedes.Modell = "C-Klasse"
-$Mercedes.Leistung = "280PS"
 
 $BMW = [Auto]::new("BMW","F31")
+$BMW.AnzahlAirbag = 10
+$BMW.Farbe = [Farbe]::Blau
+$BMW.Motortyp = "Verbrenner"
+$BMW.Räder = 4
+$BMW.Sitzplätze = 5
+$BMW.VMAx = 275
+
