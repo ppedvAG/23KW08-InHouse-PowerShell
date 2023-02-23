@@ -28,3 +28,8 @@ Dieser Kurs besteht aus den beiden Kursen:
 - Functions
 - Script Module
 - ModuleManifest
+- Klassen
+- Enum
+- .NEt Assemblies geladen
+- WMI
+- CIM
