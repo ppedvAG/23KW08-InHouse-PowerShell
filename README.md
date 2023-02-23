@@ -33,3 +33,5 @@ Dieser Kurs besteht aus den beiden Kursen:
 - .NEt Assemblies geladen
 - WMI
 - CIM
+- PowerShellRemoting
+- PS Profile
