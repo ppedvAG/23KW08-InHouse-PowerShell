@@ -27,8 +27,9 @@ if(Test-Path -Path ($Path + $Name) -PathType Container)
 {
     if($Force -ne $true)
     {
-        Write-Host -ForegroundColor Red -Object "Ordner bereits vorhanden"
-        exit
+        throw "Ordner bereits vorhanden, verwenden Sie -Force wenn Sie den bestehenden Ordner überschreiben wollen"
+        #Write-Host -ForegroundColor Red -Object "Ordner bereits vorhanden"
+        #exit
     }
     else
     {
