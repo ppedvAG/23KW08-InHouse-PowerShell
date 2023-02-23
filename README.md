@@ -25,3 +25,6 @@ Dieser Kurs besteht aus den beiden Kursen:
 - PipeLine2
 - Variablen 2
 - Git
+- Functions
+- Script Module
+- ModuleManifest
